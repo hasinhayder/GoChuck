@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"html"
 
 	"github.com/bndr/gopencils"
 )
@@ -22,5 +23,5 @@ func main() {
 	url := "http://api.icndb.com/jokes/"
 	api := gopencils.Api(url)
 	api.Res("random", randomJoke).Get()
-	fmt.Println(randomJoke.V.Joke)
+	fmt.Println(html.UnescapeString(randomJoke.V.Joke))
 }
